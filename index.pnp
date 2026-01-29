@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Практическая работа №2 - Gfhfduy</title> <!-- Твоя фамилия -->
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; background: #f9f9f9; line-height: 1.6; color: #333; }
+        h1, h2 { text-align: center; color: #007bff; }
+        .task { background: white; padding: 20px; margin: 20px 0; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+        .result { font-weight: bold; color: #28a745; }
+        form { background: #f0f8ff; padding: 20px; border-radius: 10px; max-width: 500px; margin: 30px auto; }
+        label { display: block; margin: 10px 0 5px; font-weight: bold; }
+        select, input[type="number"] { padding: 10px; width: 100%; font-size: 16px; }
+        input[type="checkbox"] { transform: scale(1.5); margin-right: 10px; }
+        input[type="submit"] { padding: 12px 30px; background: #007bff; color: white; border: none; cursor: pointer; font-size: 16px; border-radius: 5px; margin-top: 15px; }
+        .minions { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin: 30px 0; }
+        .minions img { width: 180px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.2); transition: transform 0.3s; }
+        .minions img:hover { transform: scale(1.1); }
+    </style>
+</head>
+<body>
+
+    <h1>Практическая работа №2<br>Создание серверных сценариев PHP</h1>
+    
+    <div class="minions">
+        <!-- Миньоны для мотивации -->
+        <img src="https://i.imgur.com/6Z0Z0Z0.jpg" alt="Миньон с гитарой"> <!-- Реальные ссылки на Миньонов -->
+        <img src="https://i.imgur.com/abc123.jpg" alt="Миньон с табличкой 'I am learning...'">
+        <img src="https://i.imgur.com/def456.jpg" alt="Миньон грустный">
+    </div>
+
+    <p class="result">I am learning to write web applications! 🚀</p>
+
+    <?php
+    // Задание 1: Сумма квадратов 8 и 9
+    echo '<div class="task">';
+    $num1 = 8; $num2 = 9;
+    $sum_squares = $num1**2 + $num2**2;
+    echo "<h2>Задание 1</h2>";
+    echo "<p>Сумма квадратов $num1 и $num2 = <span class='result'>$sum_squares</span></p>";
+    echo '</div>';
+
+    // Задание 2: Среднее арифметическое 3,5,8
+    echo '<div class="task">';
+    $a=3; $b=5; $c=8;
+    $avg = ($a + $b + $c) / 3;
+    echo "<h2>Задание 2</h2>";
+    echo "<p>Среднее арифметическое $a, $b, $c = <span class='result'>" . round($avg, 2) . "</span></p>";
+    echo '</div>';
+
+    // Задание 3: (x-1)*4 - 2*(z - 3*x^2 + y^2) с x=2, y=3, z=7
+    echo '<div class="task">';
+    $x=2; $y=3; $z=7;
+    $res3 = ($x - 1)*4 - 2*($z - 3*$x**2 + $y**2);
+    echo "<h2>Задание 3</h2>";
+    echo "<p>Результат = <span class='result'>$res3</span></p>";
+    echo '</div>';
+
+    // Задание 4: Все варианты деления суммы двух на третье (a=2,b=5,c=7)
+    echo '<div class="task">';
+    $a4=2; $b4=5; $c4=7;
+    $div1 = ($a4+$b4)/$c4;
+    $div2 = ($a4+$c4)/$b4;
+    $div3 = ($b4+$c4)/$a4;
+    echo "<h2>Задание 4</h2>";
+    echo "<p>($a4+$b4)/$c4 = <span class='result'>" . round($div1, 2) . "</span><br>";
+    echo "($a4+$c4)/$b4 = <span class='result'>" . round($div2, 2) . "</span><br>";
+    echo "($b4+$c4)/$a4 = <span class='result'>" . round($div3, 2) . "</span></p>";
+    echo '</div>';
+
+    // Задание 5: 40% от 15 + 84% от 27
+    echo '<div class="task">';
+    $part1 = 15 * 0.4;
+    $part2 = 27 * 0.84;
+    $sum5 = $part1 + $part2;
+    echo "<h2>Задание 5</h2>";
+    echo "<p>Сумма = <span class='result'>$sum5</span></p>";
+    echo '</div>';
+
+    // Задание 6: 16 >10 → +100, иначе -30
+    echo '<div class="task">';
+    $num6 = 16;
+    if ($num6 > 10) $num6 += 100; else $num6 -= 30;
+    echo "<h2>Задание 6</h2>";
+    echo "<p>Результат = <span class='result'>$num6</span></p>";
+    echo '</div>';
+
+    // Задание 7: Чётное → /2, иначе *3 (6)
+    echo '<div class="task">';
+    $num7 = 6;
+    if ($num7 % 2 == 0) $num7 /= 2; else $num7 *= 3;
+    echo "<h2>Задание 7</h2>";
+    echo "<p>Результат = <span class='result'>$num7</span></p>";
+    echo '</div>';
+
+    // Задание 8: max(7,3)
+    echo '<div class="task">';
+    $a8=7; $b8=3;
+    $max = ($a8 > $b8) ? $a8 : $b8;
+    echo "<h2>Задание 8</h2>";
+    echo "<p>Наибольшее = <span class='result'>$max</span></p>";
+    echo '</div>';
+
+    // Задание 9: |21-152| ==100? Да/Нет
+    echo '<div class="task">';
+    $a9=21; $b9=152;
+    $diff = abs($a9 - $b9);
+    $ans9 = ($diff == 100) ? 'Да' : 'Нет';
+    echo "<h2>Задание 9</h2>";
+    echo "<p>Отличаются на 100? <span class='result'>$ans9</span></p>";
+    echo '</div>';
+
+    // Задание 10: Возраст >80 → "Здравствуйте, уважаемый", иначе "Успехов!"
+    echo '<div class="task">';
+    $age = 85; // Можно изменить
+    $greeting = ($age > 80) ? 'Здравствуйте, уважаемый' : 'Успехов!';
+    echo "<h2>Задание 10</h2>";
+    echo "<p>Для возраста $age: <span class='result'>$greeting</span></p>";
+    echo '</div>';
+
+    // Задание 12: Массив → 'Привет, мир!'
+    echo '<div class="task">';
+    $arr = ['Привет, ', 'мир', '!'];
+    $text = $arr[0] . $arr[1] . $arr[2];
+    echo "<h2>Задание 12</h2>";
+    echo "<p>Фраза: <span class='result'>$text</span></p>";
+    echo '</div>';
+
+    // Задание 11: Форма для расчёта отдыха (Испания, Россия, Грузия, Абхазия)
+    echo '<div class="task">';
+    echo "<h2>Задание 11: Стоимость отдыха</h2>";
+    ?>
+
+    <form method="POST">
+        <label>Страна:</label>
+        <select name="country">
+            <option value="Россия">Россия</option>
+            <option value="Грузия">Грузия</option>
+            <option value="Испания">Испания</option>
+            <option value="Абхазия">Абхазия</option>
+        </select>
+
+        <label>Количество дней:</label>
+        <input type="number" name="days" min="1" required>
+
+        <label><input type="checkbox" name="discount"> Скидка 5%</label>
+
+        <input type="submit" value="Рассчитать">
+    </form>
+
+    <?php
+    if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['days'])) {
+        $country = $_POST['country'];
+        $days = (int)$_POST['days'];
+        $discount = isset($_POST['discount']);
+
+        $cost = $days * 100;
+
+        if ($country === 'Грузия') $cost *= 1.10;
+        elseif ($country === 'Испания') $cost *= 1.12;
+
+        if ($discount) $cost *= 0.95;
+
+        echo "<p class='result'>Стоимость: " . round($cost, 2) . " руб.</p>";
+    }
+    echo '</div>';
+    ?>
+
+    <p style="text-align:center; font-size:1.2em;">Готово! Запусти в Open Server → http://localhost/твоя_папка/index.php</p>
+
+</body>
+</html>

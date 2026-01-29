@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Практическая работа №2 - [Твоя фамилия]</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; line-height: 1.6; }
+        h1, h2 { text-align: center; }
+        p { font-size: 18px; margin: 20px 0; }
+        form { margin: 50px 0; padding: 20px; background: #f0f0f0; border: 1px solid #ccc; }
+        label { display: block; margin: 10px 0 5px; font-weight: bold; }
+        select, input[type="number"] { padding: 8px; font-size: 16px; }
+        input[type="checkbox"] { transform: scale(1.5); margin-right: 10px; }
+        input[type="submit"] { padding: 10px 20px; font-size: 16px; background: #007bff; color: white; border: none; cursor: pointer; }
+    </style>
+</head>
+<body>
+
+    <h1>Практическая работа №2<br>Создание серверных сценариев PHP</h1>
+
+    <?php
+    $num1 = 8;
+    $num2 = 9;
+    $sum_squares = $num1 ** 2 + $num2 ** 2;
+    echo "<p><strong>Задание 1:</strong> Сумма квадратов $num1 и $num2 = $sum_squares</p>";
+
+    $a = 3; $b = 5; $c = 8;
+    $avg = ($a + $b + $c) / 3;
+    echo "<p><strong>Задание 2:</strong> Среднее арифметическое чисел $a, $b, $c = $avg</p>";
+
+    $x = 2; $y = 3; $z = 7;
+    $res3 = ($x - 1) * 4 - 2 * ($z - 3 * $x ** 2 + $y ** 2);
+    echo "<p><strong>Задание 3:</strong> Результат выражения = $res3</p>";
+
+    $a4 = 2; $b4 = 5; $c4 = 7;
+    $div1 = ($a4 + $b4) / $c4;
+    $div2 = ($a4 + $c4) / $b4;
+    $div3 = ($b4 + $c4) / $a4;
+    echo "<p><strong>Задание 4:</strong> 
+          ($a4+$b4)/$c4 = $div1;<br>
+          ($a4+$c4)/$b4 = $div2;<br>
+          ($b4+$c4)/$a4 = $div3</p>";
+
+    $part1 = 15 * 0.40;
+    $part2 = 27 * 0.84;
+    $sum5 = $part1 + $part2;
+    echo "<p><strong>Задание 5:</strong> Сумма 40% от 15 и 84% от 27 = $sum5</p>";
+
+    $num6 = 16;
+    if ($num6 > 10) {
+        $num6 += 100;
+    } else {
+        $num6 -= 30;
+    }
+    echo "<p><strong>Задание 6:</strong> Результат после преобразования = $num6</p>";
+
+    $num7 = 6;
+    if ($num7 % 2 == 0) {
+        $num7 /= 2;
+    } else {
+        $num7 *= 3;
+    }
+    echo "<p><strong>Задание 7:</strong> Результат после преобразования = $num7</p>";
+
+    $a8 = 7; $b8 = 3;
+    $max = ($a8 > $b8) ? $a8 : $b8;
+    echo "<p><strong>Задание 8:</strong> Наибольшее число = $max</p>";
+
+    $a9 = 21; $b9 = 152;
+    $diff = abs($a9 - $b9);
+    $answer9 = ($diff == 100) ? 'Да' : 'Нет';
+    echo "<p><strong>Задание 9:</strong> Отличаются ли числа на 100? → $answer9</p>";
+
+    $age = 85;
+    $greeting = ($age > 80) ? 'Здравствуйте, уважаемый' : 'Успехов!';
+    echo "<p><strong>Задание 10:</strong> Приветствие для возраста $age лет: $greeting</p>";
+
+    $arr = ['Привет, ', 'мир', '!'];
+    $text = $arr[0] . $arr[1] . $arr[2];
+    echo "<p><strong>Задание 12:</strong> $text</p>";
+    ?>
+
+    <h2>Задание 11: Расчёт стоимости отдыха</h2>
+    <form method="POST">
+        <label>Выберите страну:</label>
+        <select name="country">
+            <option value="Россия">Россия</option>
+            <option value="Грузия">Грузия</option>
+            <option value="Испания">Испания</option>
+            <option value="Абхазия">Абхазия</option>
+        </select>
+
+        <label>Количество дней отдыха:</label>
+        <input type="number" name="days" min="1" required>
+
+        <label>Есть ли у вас скидка 5%?</label>
+        <input type="checkbox" name="discount">
+
+        <br><br>
+        <input type="submit" value="Рассчитать стоимость">
+    </form>
+
+    <?php
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        $country = $_POST['country'];
+        $days = (int)$_POST['days'];
+        $discount = isset($_POST['discount']);
+
+        $cost = $days * 100;
+
+        if ($country === 'Грузия') {
+            $cost *= 1.10;
+        } elseif ($country === 'Испания') {
+            $cost *= 1.12;
+        }
+
+        if ($discount) {
+            $cost *= 0.95;
+        }
+
+        echo "<p><strong>Результат задания 11:</strong> Стоимость отдыха = $cost руб.</p>";
+    }
+    ?>
+
+</body>
+</html>
